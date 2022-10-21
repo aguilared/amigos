@@ -13,18 +13,16 @@ import {
 } from "@rneui/themed";
 
 type ListData = {
+  id: number;
   name: string;
-  avatar_url: string;
-  subtitle: string;
-  linearGradientColors: string[];
+  isFriend: boolean;
 };
 
 type ContactList = {
   list: {
+    id: number;
     name: string;
-    avatar_url: string;
-    subtitle: string;
-    linearGradientColors: string[];
+    isFriend: boolean;
   }[];
 };
 
@@ -32,12 +30,15 @@ const ContactList = ({ list }: ContactList) => {
   return (
     <View>
       {list.map((l, i) => (
-        <ListItem key={i} bottomDivider>
-          <Avatar source={{ uri: l.avatar_url }} />
+        <ListItem key={l.id} bottomDivider>
           <ListItem.Content>
             <ListItem.Title>{l.name}</ListItem.Title>
-            <ListItem.Subtitle>{l.subtitle}</ListItem.Subtitle>
           </ListItem.Content>
+          {l.isFriend ? (
+            <Icon name="adduser" type="antdesign" color="#3D82AD" />
+          ) : (
+            <Icon name="deleteuser" type="antdesign" color="#eaeaea" />
+          )}
         </ListItem>
       ))}
     </View>

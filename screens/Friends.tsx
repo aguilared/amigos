@@ -10,64 +10,49 @@ import ContactList from "../components/ContactList";
 
 const contactList = [
   {
+    id: 1,
     name: "Lettie Phelps",
-    avatar_url: "https://uifaces.co/our-content/donated/XdLjsJX_.jpg",
-    subtitle: "Vice President",
-    linearGradientColors: ["#FF9800", "#F44336"],
+    isFriend: false,
   },
   {
+    id: 2,
     name: "Tommy Lewis",
-    avatar_url: "https://uifaces.co/our-content/donated/KtCFjlD4.jpg",
-    subtitle: "Vice Chairman",
-    linearGradientColors: ["#3F51B5", "#2196F3"],
+    isFriend: true,
   },
   {
+    id: 3,
     name: "Tillie Wells",
-    avatar_url:
-      "https://images.unsplash.com/photo-1498529605908-f357a9af7bf5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=047fade70e80ebb22ac8f09c04872c40",
-    subtitle: "CEO",
-    linearGradientColors: ["#FFD600", "#FF9800"],
+    isFriend: false,
   },
   {
+    id: 4,
     name: "Lydia Gray",
-    avatar_url: "https://randomuser.me/api/portraits/women/48.jpg",
-    subtitle: "Lead Developer",
-    linearGradientColors: ["#4CAF50", "#8BC34A"],
+    isFriend: false,
   },
   {
+    id: 5,
     name: "Jack Ramirez",
-    avatar_url:
-      "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQwMDQ0NDk1OV5BMl5BanBnXkFtZTcwNDcxOTExNg@@._V1_UY256_CR2,0,172,256_AL_.jpg",
-    subtitle: "CTO",
-    linearGradientColors: ["#F44336", "#E91E63"],
+    isFriend: false,
   },
   {
+    id: 6,
     name: "Catherine Bennet",
-    avatar_url:
-      "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQwMDQ0NDk1OV5BMl5BanBnXkFtZTcwNDcxOTExNg@@._V1_UY256_CR2,0,172,256_AL_.jpg",
-    subtitle: "CTO",
-    linearGradientColors: ["#F44336", "#E91E63"],
+    isFriend: true,
   },
   {
+    id: 7,
     name: "Wesley Buchanan",
-    avatar_url:
-      "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQwMDQ0NDk1OV5BMl5BanBnXkFtZTcwNDcxOTExNg@@._V1_UY256_CR2,0,172,256_AL_.jpg",
-    subtitle: "CTO",
-    linearGradientColors: ["#F44336", "#E91E63"],
+    isFriend: false,
   },
   {
+    id: 8,
     name: "Lydia Gray",
-    avatar_url:
-      "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQwMDQ0NDk1OV5BMl5BanBnXkFtZTcwNDcxOTExNg@@._V1_UY256_CR2,0,172,256_AL_.jpg",
-    subtitle: "CTO",
-    linearGradientColors: ["#F44336", "#E91E63"],
+    isFriend: false,
   },
   {
+    id: 9,
     name: "Jack Ramirez",
-    avatar_url:
-      "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQwMDQ0NDk1OV5BMl5BanBnXkFtZTcwNDcxOTExNg@@._V1_UY256_CR2,0,172,256_AL_.jpg",
-    subtitle: "CTO",
-    linearGradientColors: ["#F44336", "#E91E63"],
+    isFriend: false,
   },
 ];
 
@@ -86,12 +71,23 @@ export default function Friends() {
           placeholder="Buscas a alguien?"
           onChangeText={updateSearch}
           value={search}
+          containerStyle={{
+            borderRadius: 20,
+          }}
+          inputContainerStyle={{
+            backgroundColor: "transparent",
+          }}
           lightTheme
         />
       </View>
 
-      <ContactList list={contacts} />
-      {/* <EditScreenInfo path="/screens/TabOneScreen.tsx" /> */}
+      {contacts && contacts.length > 0 ? (
+        <ContactList list={contacts} />
+      ) : (
+        <Text style={{ marginVertical: 20, textAlign: "center" }}>
+          No se encontraron contactos.
+        </Text>
+      )}
     </View>
   );
 }
@@ -103,7 +99,7 @@ const styles = StyleSheet.create({
   searchContainer: {
     marginTop: 10,
     marginBottom: 5,
-    height: 60,
+    height: 70,
     paddingHorizontal: 20,
     width: "100%",
   },
