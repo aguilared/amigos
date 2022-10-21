@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet } from "react-native";
-import { SearchBar } from "@rneui/themed";
+import { SearchBar, FAB, Icon } from "@rneui/themed";
+import { LinearGradient } from "expo-linear-gradient";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
@@ -72,11 +73,16 @@ export default function Friends() {
           onChangeText={updateSearch}
           value={search}
           containerStyle={{
+            backgroundColor: "transparent",
+            borderWidth: 1,
+            borderColor: "#eaeaea",
             borderRadius: 20,
           }}
           inputContainerStyle={{
             backgroundColor: "transparent",
+            borderColor: "#eaeaea",
           }}
+          inputStyle={{ backgroundColor: "white" }}
           lightTheme
         />
       </View>
@@ -88,6 +94,26 @@ export default function Friends() {
           No se encontraron contactos.
         </Text>
       )}
+
+      <View style={styles.footerContainer}>
+        <LinearGradient
+          colors={["#3272A5", "#3E8CBC", "#469DCB"]}
+          style={{
+            paddingVertical: 10,
+            borderRadius: 10,
+            paddingHorizontal: 20,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            width: 200,
+          }}
+          start={{ x: -1, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        >
+          <Icon name="pluscircleo" type="antdesign" color="white" />
+          <Icon name="creditcard" type="antdesign" color="white" />
+          <Icon name="shoppingcart" type="antdesign" color="white" />
+        </LinearGradient>
+      </View>
     </View>
   );
 }
@@ -102,5 +128,11 @@ const styles = StyleSheet.create({
     height: 70,
     paddingHorizontal: 20,
     width: "100%",
+  },
+  footerContainer: {
+    position: "absolute",
+    alignSelf: "center",
+    bottom: 2,
+    paddingHorizontal: 40,
   },
 });
