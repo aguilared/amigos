@@ -8,7 +8,7 @@ export default function HeaderTitle() {
   const navigation = useNavigation();
 
   return (
-    <View style={{ width: "80%" }}>
+    <View style={{ width: "70%" }}>
       <ButtonGroup
         buttons={["Amigos", "Negocios"]}
         selectedIndex={route.name === "Friends" ? 0 : 1}

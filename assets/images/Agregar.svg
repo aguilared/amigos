@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>F879175E-7451-4C6F-93FF-96DDFB5C4EF4</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="375" height="88"></rect>
+        <filter x="-11.3%" y="-36.9%" width="122.7%" height="196.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="10" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="8.05965437%" y1="89.8887187%" x2="74.0361044%" y2="14.3809167%" id="linearGradient-3">
+            <stop stop-color="#0073A6" offset="0%"></stop>
+            <stop stop-color="#00A6D9" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="APP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Empresas" transform="translate(-323.000000, -39.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="375" height="812"></rect>
+            <g id="Cabecera" transform="translate(-1.000000, 0.000000)">
+                <g id="Rectangle" transform="translate(1.000000, 0.000000)">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="Cabecera-/-Logo" transform="translate(0.000000, 39.000000)"></g>
+                <g id="Enlace-Cabecera-/-Ajustes" transform="translate(324.000000, 39.000000)" fill="url(#linearGradient-3)" fill-rule="nonzero">
+                    <path d="M23,12 C23.341698,12 23.6240904,12.2539176 23.6687829,12.5833584 L23.6749444,12.6749444 L23.674,22.325 L33.3250556,22.3250556 C33.6978171,22.3250556 34,22.6272385 34,23 C34,23.341698 33.7460824,23.6240904 33.4166416,23.6687829 L33.3250556,23.6749444 L23.674,23.674 L23.6749444,33.3250556 C23.6749444,33.6978171 23.3727615,34 23,34 C22.658302,34 22.3759096,33.7460824 22.3312171,33.4166416 L22.3250556,33.3250556 L22.325,23.674 L12.6749444,23.6749444 C12.3021829,23.6749444 12,23.3727615 12,23 C12,22.658302 12.2539176,22.3759096 12.5833584,22.3312171 L12.6749444,22.3250556 L22.325,22.325 L22.3250556,12.6749444 C22.3250556,12.3021829 22.6272385,12 23,12 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

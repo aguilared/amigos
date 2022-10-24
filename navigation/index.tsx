@@ -29,6 +29,7 @@ import {
   RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
+import Ajustes from "../assets/images/Ajustes.svg";
 
 export default function Navigation({
   colorScheme,
@@ -53,19 +54,26 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Friends">
+    <Stack.Navigator
+      initialRouteName="Friends"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "transparent",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+        headerShown: true,
+      }}
+    >
       <Stack.Screen
         name="Friends"
         component={Friends}
         options={{
           headerTitleAlign: "center",
-          headerLeft: () => (
-            <Icon type="antdesign" name="heart" color="#3D82AD" />
-          ),
+          headerLeft: () => <Ajustes style={styles.logo} />,
           headerTitle: () => <HeaderTitle />,
-          headerRight: () => (
-            <Icon type="FontAwesome" name="settings" color="#3D82AD" />
-          ),
         }}
       />
       <Stack.Screen
@@ -75,13 +83,8 @@ function RootNavigator() {
           headerBackVisible: false,
           animation: "slide_from_right",
           headerTitleAlign: "center",
-          headerLeft: () => (
-            <Icon type="antdesign" name="heart" color="#3D82AD" />
-          ),
+          headerLeft: () => <Ajustes style={styles.logo} />,
           headerTitle: () => <HeaderTitle />,
-          headerRight: () => (
-            <Icon type="FontAwesome" name="settings" color="#3D82AD" />
-          ),
         }}
       />
     </Stack.Navigator>
@@ -148,3 +151,24 @@ function TabBarIcon(props: {
 }) {
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
 }
+
+const styles = {
+  logo: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  container: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "#efefef",
+  },
+  scrollView: {
+    width: "100%",
+  },
+  containerStyles: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+};

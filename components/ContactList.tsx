@@ -11,6 +11,9 @@ import {
   Switch,
   lightColors,
 } from "@rneui/themed";
+import Ajustes from "../assets/images/Ajustes.svg";
+import Invitado from "../assets/images/Invitado.svg";
+import Sininvitar from "../assets/images/Sininvitar.svg";
 
 type ListData = {
   id: number;
@@ -35,9 +38,9 @@ const ContactList = ({ list }: ContactList) => {
             <ListItem.Title>{l.name}</ListItem.Title>
           </ListItem.Content>
           {l.isFriend ? (
-            <Icon name="adduser" type="antdesign" color="#3D82AD" />
+            <Invitado style={styles.logo} />
           ) : (
-            <Icon name="deleteuser" type="antdesign" color="#eaeaea" />
+            <Sininvitar style={styles.logo} />
           )}
         </ListItem>
       ))}
@@ -45,6 +48,24 @@ const ContactList = ({ list }: ContactList) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  logo: {
+    height: "125px",
+  },
+  container: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "#efefef",
+  },
+  scrollView: {
+    width: "100%",
+  },
+  containerStyles: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+});
 
 export default ContactList;
