@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Image, FlatList } from "react-native";
+import { View, StyleSheet, Image, FlatList, ScrollView } from "react-native";
 import {
   Text,
   ListItem,
@@ -32,25 +32,28 @@ type ContactList = {
 const ContactList = ({ list }: ContactList) => {
   return (
     <View>
-      {list.map((l, i) => (
-        <ListItem key={l.id} bottomDivider>
-          <ListItem.Content>
-            <ListItem.Title>{l.name}</ListItem.Title>
-          </ListItem.Content>
-          {l.isFriend ? (
-            <Invitado style={styles.logo} />
-          ) : (
-            <Sininvitar style={styles.logo} />
-          )}
-        </ListItem>
-      ))}
+      <ScrollView style={styles.scrollView}>
+        {list.map((l, i) => (
+          <ListItem key={l.id} bottomDivider>
+            <ListItem.Content>
+              <ListItem.Title>{l.name}</ListItem.Title>
+            </ListItem.Content>
+            {l.isFriend ? (
+              <Invitado style={styles.logo} />
+            ) : (
+              <Sininvitar style={styles.logo} />
+            )}
+          </ListItem>
+        ))}
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   logo: {
-    height: "125px",
+    marginTop: 10,
+    marginBottom: 10,
   },
   container: {
     flex: 1,

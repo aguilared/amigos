@@ -12,7 +12,7 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
+import { ColorSchemeName, Pressable, StyleSheet } from "react-native";
 import { Icon } from "@rneui/themed";
 
 import Colors from "../constants/Colors";
@@ -54,19 +54,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator
-      initialRouteName="Friends"
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "transparent",
-        },
-        headerTintColor: "#fff",
-        headerTitleStyle: {
-          fontWeight: "bold",
-        },
-        headerShown: true,
-      }}
-    >
+    <Stack.Navigator initialRouteName="Friends">
       <Stack.Screen
         name="Friends"
         component={Friends}
@@ -152,7 +140,7 @@ function TabBarIcon(props: {
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
 }
 
-const styles = {
+const styles = StyleSheet.create({
   logo: {
     marginTop: 10,
     marginBottom: 10,
@@ -171,4 +159,4 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
   },
-};
+});
