@@ -30,6 +30,7 @@ import {
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import Ajustes from "../assets/images/Ajustes.svg";
+import Invitado from "../assets/images/Invitado.svg";
 
 export default function Navigation({
   colorScheme,
@@ -60,7 +61,7 @@ function RootNavigator() {
         component={Friends}
         options={{
           headerTitleAlign: "center",
-          headerLeft: () => <Ajustes style={styles.logo} />,
+          headerLeft: () => <Invitado style={styles.logo} />,
           headerTitle: () => <HeaderTitle />,
         }}
       />

@@ -8,52 +8,86 @@ import { Text, View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 import ContactList from "../components/ContactList";
 //{ navigation }: RootTabScreenProps<'TabOne'>
+import Activado from "../assets/images/Activado.svg";
 
 const contactList = [
   {
     id: 1,
     name: "Lettie Phelps",
-    isFriend: false,
+    isInvited: false,
+    isInvitedStat: false,
   },
   {
     id: 2,
-    name: "Tommy Lewis",
-    isFriend: true,
+    name: "Josephine Gordon",
+    isInvited: true,
+    isInvitedStat: false,
   },
   {
     id: 3,
-    name: "Tillie Wells",
-    isFriend: false,
+    name: "Tommy Lewis",
+    isInvited: false,
+    isInvitedStat: false,
   },
   {
     id: 4,
-    name: "Lydia Gray",
-    isFriend: false,
+    name: "Tillie Wells",
+    isInvited: true,
+    isInvitedStat: false,
   },
   {
     id: 5,
-    name: "Jack Ramirez",
-    isFriend: false,
+    name: "Lydia Gray",
+    isInvited: true,
+    isInvitedStat: true,
   },
   {
     id: 6,
-    name: "Catherine Bennet",
-    isFriend: true,
+    name: "Jack Ramirez",
+    isInvited: false,
+    isInvitedStat: false,
   },
   {
     id: 7,
-    name: "Wesley Buchanan",
-    isFriend: false,
+    name: "Catherine Bennet",
+    isInvited: true,
+    isInvitedStat: false,
   },
   {
     id: 8,
-    name: "Lydia Gray",
-    isFriend: false,
+    name: "Wesley Buchanan",
+    isInvited: false,
+    isInvitedStat: false,
   },
   {
     id: 9,
-    name: "Jack Ramirez",
-    isFriend: false,
+    name: "Lydia Grayy",
+    isInvited: true,
+    isInvitedStat: true,
+  },
+  {
+    id: 10,
+    name: "Jack Ramirezz",
+    isInvited: false,
+    isInvitedStat: false,
+  },
+  {
+    id: 12,
+    name: "Catherine Bennett",
+    isInvited: true,
+    isInvitedStat: false,
+  },
+  {
+    id: 13,
+    name: "Wesley Buchanann",
+    isInvited: false,
+    isInvitedStat: false,
+  },
+  {
+    id: 14,
+    name: "Catherine Bennett88",
+    isInvited: true,
+    isInvitedStat: false,
   },
 ];
 
@@ -86,30 +120,31 @@ export default function Friends() {
           lightTheme
         />
       </View>
-
-      {contacts && contacts.length > 0 ? (
-        <ContactList list={contacts} />
-      ) : (
-        <Text style={{ marginVertical: 20, textAlign: "center" }}>
-          No se encontraron contactos.
-        </Text>
-      )}
-
+      <View style={styles.container}>
+        {contacts && contacts.length > 0 ? (
+          <ContactList list={contacts} />
+        ) : (
+          <Text style={{ marginVertical: 20, textAlign: "center" }}>
+            No se encontraron contactos.
+          </Text>
+        )}
+      </View>
       <View style={styles.footerContainer}>
         <LinearGradient
-          colors={["#3272A5", "#3E8CBC", "#469DCB"]}
+          colors={["#00A6D9", "#3D82AD"]}
           style={{
             paddingVertical: 10,
             borderRadius: 10,
             paddingHorizontal: 20,
             flexDirection: "row",
             justifyContent: "space-between",
-            width: 200,
+            width: 314,
+            height: 58,
           }}
           start={{ x: -1, y: 0 }}
           end={{ x: 1, y: 0 }}
         >
-          <Icon name="pluscircleo" type="antdesign" color="white" />
+          <Activado style={styles.logo} />
           <Icon name="creditcard" type="antdesign" color="white" />
           <Icon name="shoppingcart" type="antdesign" color="white" />
         </LinearGradient>
@@ -134,5 +169,9 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     bottom: 2,
     paddingHorizontal: 40,
+  },
+  logo: {
+    marginTop: 1,
+    marginBottom: 1,
   },
 });

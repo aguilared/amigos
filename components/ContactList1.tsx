@@ -14,21 +14,19 @@ import {
 import Ajustes from "../assets/images/Ajustes.svg";
 import Invitado from "../assets/images/Invitado.svg";
 import Sininvitar from "../assets/images/Sininvitar.svg";
-import InvitadoInactivo from "../assets/images/InvitadoInactivo.svg";
+import Inactivo from "../assets/images/Inactivo.svg";
 
 type ListData = {
   id: number;
   name: string;
-  isInvited: boolean;
-  isInvitedStat: boolean;
+  isFriend: boolean;
 };
 
 type ContactList = {
   list: {
     id: number;
     name: string;
-    isInvited: boolean;
-    isInvitedStat: boolean;
+    isFriend: boolean;
   }[];
 };
 
@@ -41,13 +39,10 @@ const ContactList = ({ list }: ContactList) => {
             <ListItem.Content>
               <ListItem.Title>{l.name}</ListItem.Title>
             </ListItem.Content>
-
-            {!l.isInvited! ? (
-              <Sininvitar style={styles.logo} />
-            ) : l.isInvitedStat ? (
+            {l.isFriend ? (
               <Invitado style={styles.logo} />
             ) : (
-              <InvitadoInactivo style={styles.logo} />
+              <Inactivo style={styles.logo} />
             )}
           </ListItem>
         ))}
