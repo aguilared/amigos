@@ -20,7 +20,10 @@ export type RootStackParamList = {
   Friends: undefined;
   Bussiness: undefined;
   Modal: undefined;
+  ModalScreen: undefined;
   NotFound: undefined;
+  TabOne: undefined;
+  TabTwo: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -29,6 +32,8 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
 export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
+  Modal: undefined;
+  ModalScreen: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =

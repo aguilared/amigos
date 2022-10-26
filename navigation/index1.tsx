@@ -23,8 +23,6 @@ import Friends from "../screens/Friends";
 import Bussiness from "../screens/Bussiness";
 import HeaderTitle from "../components/HeaderTitle";
 import HeaderLeft from "../components/HeaderLeft";
-import HeaderRightB from "../components/HeaderRightB";
-import HeaderRightF from "../components/HeaderRightF";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   RootStackParamList,
@@ -64,9 +62,8 @@ function RootNavigator() {
         component={Friends}
         options={{
           headerTitleAlign: "center",
-          headerLeft: () => <HeaderLeft />,
+          headerLeft: () => <Ajustes style={styles.logo} />,
           headerTitle: () => <HeaderTitle />,
-          headerRight: () => <HeaderRightB />,
         }}
       />
       <Stack.Screen
@@ -78,34 +75,9 @@ function RootNavigator() {
           headerTitleAlign: "center",
           headerLeft: () => <HeaderLeft />,
           headerTitle: () => <HeaderTitle />,
-          headerRight: () => <HeaderRightB />,
+          headerRight: () => <HeaderLeft />,
         }}
       />
-      <Stack.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
-        options={({ navigation }: RootTabScreenProps<"Modal">) => ({
-          title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("Modal")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
-      />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
     </Stack.Navigator>
   );
 }

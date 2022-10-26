@@ -22,7 +22,7 @@ type ListData = {
   isFriend: boolean;
 };
 
-type ContactList = {
+type ContactList1 = {
   list: {
     id: number;
     name: string;
@@ -30,7 +30,7 @@ type ContactList = {
   }[];
 };
 
-const ContactList = ({ list }: ContactList) => {
+const ContactList1 = ({ list }: ContactList1) => {
   return (
     <View>
       <ScrollView style={styles.scrollView}>
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ContactList;
+export default ContactList1;

@@ -1,35 +1,59 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import { ButtonGroup } from "@rneui/themed";
+import { Text, StyleSheet, View } from "react-native";
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-
-export default function ModalScreen() {
+export default () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndexes, setSelectedIndexes] = useState([0, 2, 3]);
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/ModalScreen.tsx" />
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-    </View>
+    <>
+      <View style={styles.container}>
+        <Text style={styles.subHeader}>Using Strings</Text>
+        <ButtonGroup
+          buttons={["SIMPLE", "BUTTON", "GROUP"]}
+          selectedIndex={selectedIndex}
+          onPress={(value) => {
+            setSelectedIndex(value);
+          }}
+          containerStyle={{ marginBottom: 20 }}
+        />
+        <ButtonGroup
+          buttons={["Multiple", "Select", "Button", "Group"]}
+          selectMultiple
+          selectedIndexes={selectedIndexes}
+          onPress={(value) => {
+            setSelectedIndexes(value);
+          }}
+          containerStyle={{ marginBottom: 20 }}
+        />
+        <Text style={styles.subHeader}>Using Components</Text>
+      </View>
+    </>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: 853,
+    width: 375,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#0086B9",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
+  },
+  subHeader: {
+    backgroundColor: "#2089dc",
+    color: "white",
+    textAlign: "center",
+    paddingVertical: 5,
+    marginBottom: 10,
   },
 });

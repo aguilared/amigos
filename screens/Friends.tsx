@@ -131,7 +131,7 @@ export default function Friends() {
       </View>
       <View style={styles.footerContainer}>
         <LinearGradient
-          colors={["#00A6D9", "#3D82AD"]}
+          colors={["#0073A6", "#00A6D9"]}
           style={{
             paddingVertical: 10,
             borderRadius: 10,
@@ -172,6 +172,6 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginTop: 1,
-    marginBottom: 1,
+    marginBottom: 10,
   },
 });

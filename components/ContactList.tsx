@@ -37,7 +37,7 @@ const ContactList = ({ list }: ContactList) => {
     <View>
       <ScrollView style={styles.scrollView}>
         {list.map((l, i) => (
-          <ListItem key={l.id} bottomDivider>
+          <ListItem key={l.id} bottomDivider style={(height = 54)}>
             <ListItem.Content>
               <ListItem.Title>{l.name}</ListItem.Title>
             </ListItem.Content>
