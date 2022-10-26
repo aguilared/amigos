@@ -11,10 +11,6 @@ import {
   Switch,
   lightColors,
 } from "@rneui/themed";
-import Ajustes from "../assets/images/Ajustes.svg";
-import Invitado from "../assets/images/Invitado.svg";
-import Sininvitar from "../assets/images/Sininvitar.svg";
-import InvitadoInactivo from "../assets/images/InvitadoInactivo.svg";
 
 type ListData = {
   id: number;
@@ -35,19 +31,28 @@ type ContactList = {
 const ContactList = ({ list }: ContactList) => {
   return (
     <View>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
         {list.map((l, i) => (
-          <ListItem key={l.id} bottomDivider style={(height = 54)}>
+          <ListItem key={l.id} bottomDivider>
             <ListItem.Content>
-              <ListItem.Title>{l.name}</ListItem.Title>
+              <ListItem.Title style={{ color: "#838383" }}>
+                {l.name}
+              </ListItem.Title>
             </ListItem.Content>
-
             {!l.isInvited! ? (
-              <Sininvitar style={styles.logo} />
+              <Icon
+                type="feather"
+                name="user-plus"
+                color={"##515456"}
+                style={{ opacity: 0.2 }}
+              />
             ) : l.isInvitedStat ? (
-              <Invitado style={styles.logo} />
+              <Icon type="entypo" name="emoji-flirt" color={"#567497"} />
             ) : (
-              <InvitadoInactivo style={styles.logo} />
+              <Icon type="entypo" name="emoji-flirt" color={"#C0C0C0"} />
             )}
           </ListItem>
         ))}
@@ -60,6 +65,8 @@ const styles = StyleSheet.create({
   logo: {
     marginTop: 10,
     marginBottom: 10,
+    height: 46,
+    width: 46,
   },
   container: {
     flex: 1,

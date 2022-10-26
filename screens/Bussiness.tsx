@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { StyleSheet } from "react-native";
-import { SearchBar, FAB, Icon } from "@rneui/themed";
-import { LinearGradient } from "expo-linear-gradient";
-import EditScreenInfo from "../components/EditScreenInfo";
+import { Input, Icon } from "@rneui/themed";
 import { Text, View } from "../components/Themed";
-import { RootTabScreenProps } from "../types";
 import ContactList from "../components/ContactList";
-//{ navigation }: RootTabScreenProps<'TabOne'>
+import Footer from "../components/Footer";
 
 const bussinessList = [
   {
@@ -52,22 +49,21 @@ export default function Bussiness() {
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
-        <SearchBar
+        <Input
           placeholder="Buscas un negocio en concreto?"
           onChangeText={updateSearch}
           value={search}
+          inputStyle={{ color: "#979797", fontSize: 14, paddingHorizontal: 5 }}
+          placeholderTextColor="#979797"
           containerStyle={{
             backgroundColor: "transparent",
             borderWidth: 1,
-            borderColor: "#eaeaea",
+            borderColor: "#979797",
             borderRadius: 20,
+            height: 44,
           }}
-          inputContainerStyle={{
-            backgroundColor: "transparent",
-            borderColor: "#eaeaea",
-          }}
-          inputStyle={{ backgroundColor: "white" }}
-          lightTheme
+          underlineColorAndroid="transparent"
+          rightIcon={<Icon name="search" color="#979797" />}
         />
       </View>
 
@@ -78,26 +74,7 @@ export default function Bussiness() {
           No se encontraron negocios.
         </Text>
       )}
-      <View style={styles.footerContainer}>
-        <LinearGradient
-          colors={["#3272A5", "#3E8CBC", "#469DCB"]}
-          style={{
-            paddingVertical: 10,
-            borderRadius: 10,
-            paddingHorizontal: 20,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            width: 314,
-            height: 58,
-          }}
-          start={{ x: -1, y: 0 }}
-          end={{ x: 1, y: 0 }}
-        >
-          <Icon name="pluscircleo" type="antdesign" color="white" />
-          <Icon name="creditcard" type="antdesign" color="white" />
-          <Icon name="shoppingcart" type="antdesign" color="white" />
-        </LinearGradient>
-      </View>
+      <Footer />
     </View>
   );
 }
@@ -109,7 +86,7 @@ const styles = StyleSheet.create({
   searchContainer: {
     marginTop: 10,
     marginBottom: 5,
-    height: 70,
+    height: 44,
     paddingHorizontal: 20,
     width: "100%",
   },

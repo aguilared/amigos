@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { StyleSheet } from "react-native";
-import { SearchBar, FAB, Icon } from "@rneui/themed";
-import { LinearGradient } from "expo-linear-gradient";
+import { SearchBar, Input, Icon } from "@rneui/themed";
 
-import EditScreenInfo from "../components/EditScreenInfo";
+import Footer from "../components/Footer";
 import { Text, View } from "../components/Themed";
-import { RootTabScreenProps } from "../types";
 import ContactList from "../components/ContactList";
-//{ navigation }: RootTabScreenProps<'TabOne'>
-import Activado from "../assets/images/Activado.svg";
 
 const contactList = [
   {
@@ -102,22 +98,21 @@ export default function Friends() {
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
-        <SearchBar
+        <Input
           placeholder="Buscas a alguien?"
           onChangeText={updateSearch}
           value={search}
+          inputStyle={{ color: "#979797", fontSize: 14, paddingHorizontal: 5 }}
+          placeholderTextColor="#979797"
           containerStyle={{
             backgroundColor: "transparent",
             borderWidth: 1,
-            borderColor: "#eaeaea",
+            borderColor: "#979797",
             borderRadius: 20,
+            height: 44,
           }}
-          inputContainerStyle={{
-            backgroundColor: "transparent",
-            borderColor: "#eaeaea",
-          }}
-          inputStyle={{ backgroundColor: "white" }}
-          lightTheme
+          underlineColorAndroid="transparent"
+          rightIcon={<Icon name="search" color="#979797" />}
         />
       </View>
       <View style={styles.container}>
@@ -129,26 +124,7 @@ export default function Friends() {
           </Text>
         )}
       </View>
-      <View style={styles.footerContainer}>
-        <LinearGradient
-          colors={["#0073A6", "#00A6D9"]}
-          style={{
-            paddingVertical: 10,
-            borderRadius: 10,
-            paddingHorizontal: 20,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            width: 314,
-            height: 58,
-          }}
-          start={{ x: -1, y: 0 }}
-          end={{ x: 1, y: 0 }}
-        >
-          <Activado style={styles.logo} />
-          <Icon name="creditcard" type="antdesign" color="white" />
-          <Icon name="shoppingcart" type="antdesign" color="white" />
-        </LinearGradient>
-      </View>
+      <Footer />
     </View>
   );
 }
@@ -160,16 +136,11 @@ const styles = StyleSheet.create({
   searchContainer: {
     marginTop: 10,
     marginBottom: 5,
-    height: 70,
+    height: 44,
     paddingHorizontal: 20,
     width: "100%",
   },
-  footerContainer: {
-    position: "absolute",
-    alignSelf: "center",
-    bottom: 2,
-    paddingHorizontal: 40,
-  },
+
   logo: {
     marginTop: 1,
     marginBottom: 10,

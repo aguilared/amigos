@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { Dialog, Icon } from "@rneui/themed";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useState } from "react";
@@ -14,12 +14,10 @@ export default function HeaderRightB() {
   };
 
   return (
-    <View style={{ width: "10%" }}>
-      <View style={styles.logo}>
-        <Text onPress={toggleDialog1} style={styles.textNumber}>
-          +
-        </Text>
-      </View>
+    <>
+      <TouchableOpacity onPress={toggleDialog1}>
+        <Icon type="feather" name="plus" color="#618695" />
+      </TouchableOpacity>
       <Dialog isVisible={visible1} onBackdropPress={toggleDialog1}>
         <Text style={styles.textNumber}>Invita una Empresa</Text>
         <Dialog.Title title="Cuando confirme recibiras:" />
@@ -43,7 +41,7 @@ export default function HeaderRightB() {
           <Dialog.Button title="Cancelar" onPress={toggleDialog1} />
         </Dialog.Actions>
       </Dialog>
-    </View>
+    </>
   );
 }
 
